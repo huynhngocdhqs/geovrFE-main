@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Leaflet modules -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Draw -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom style -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styleMain.css">
+    <link rel="stylesheet" href="./css/styleMap.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-0 d-flex">
+        <!-- Map -->
+        <div id="map">
+          <div class="map--search">
+              <div class="input-group map--search-group">
+                <input type="text" id="input-search" class="form-control map--search-input" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="button-search">
+                <button class="btn btn-primary map--search-btn" type="button" id="button-search">
+                  <img src="./assets/search-svgrepo-com.svg" alt="Search button">
+                </button>
+              </div>
+
+              <button class="btn btn-primary map--search-btn" type="button" id="button-goToFeature">
+                <img src="./assets/direction-svgrepo-com.svg" alt="Search button">
+              </button>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="custom-sidebar top-0 end-0 bg-light">
+          <img src="./assets/close.svg" alt="Close" class="btn-closeSidebar">
+          <div class="p-2 mt-3">
+            <div class="layers-content" id="layers-content-id">
+            </div>
+
+            <div class="info-content" id="info-content-id" hidden="true">
+              <h2 class="fs-2 fw-bold">Info Map</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popup -->
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <span id="popup-close" class="popup-close">&times;</span>
+                <div id="popup-body"></div>
+            </div>
+        </div>
+
+        <div id="popup-addFeature" class="popup hidden">
+          <div class="popup-content">
+              <span id="popup-addFeature-close" class="popup-close">&times;</span>
+              <div id="popup-addFeature-body"></div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <!-- Gọi layout header -->
+    <!-- <script src="./js/getHeader.js" type="module"></script> -->
+    <!-- Gọi layout header -->
+    <script>
+      fetch('/geovrFE-main/layout/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+    </script>
+    <!-- Custom js -->
+    <script type="module">
+      document.addEventListener('headerLoaded', function () {
+        import('./js/main.js')
+        .then(module => {
+        })
+        .catch(error => {
+            console.error('Error loading main.js:', error);
+        });
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/geovrFE-main/css/reset.css">
+  <link rel="stylesheet" href="/geovrFE-main/css/styleMain.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="/geovrFE-main/assets/screen-ltr-873afe68d4017338baaaf2e3a4b01e028078022523340f705d96922e781b4b56.css"
+    media="screen" />
+  <link rel="stylesheet"
+    href="/geovrFE-main/assets/print-ltr-2b3d6571f8a48820d650d5ce29f567269af78d5158f89ecab755db8c5d3d62db.css"
+    media="print" />
+  <link rel="stylesheet"
+    href="/geovrFE-main/assets/leaflet-all-7224da9b323ba8c997b953386cd9f33bfe5f0860fab29e9e4c12b71f369b9dc9.css"
+    media="screen, print" />
+
+
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <div id="content" class="">
+
+    <div class="content-heading bg-body-secondary border-bottom border-secondary-subtle">
+      <div class="content-inner pb-0">
+
+        <div class="header-illustration new-user-main">
+          <ul class="nav nav-tabs position-absolute bottom-0 fs-6 w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="/geovrFE-main/pages/authPage/index.html">Đăng nhập</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Mở tài khoản</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="content-inner">
+        <div class="text-body-secondary fs-6">
+          <p><strong>Tự do sử dụng và sửa đổi.</strong> Không giống như với các bản đồ kia, OpenStreetMap được xây dựng
+            hoàn toàn nhờ những người như bạn, và mọi người có thể tự do sửa chữa, cập nhật, tải về, và sử dụng miễn
+            phí.</p>
+          <p>Hãy mở tài khoản để bắt đầu đóng góp.</p>
+        </div>
+        <form class="new_user" id="new_user" action="/geovrFE-main/pages/authPage/new.html" accept-charset="UTF-8"
+          method="post"><input type="hidden" name="authenticity_token"
+            value="9HUBLZXa1FRdT1nHhKrbp5Uc9Zw1EOnLikT2x_vI7BqSo1nb3PLALBiZlYKGxs1gzHuwCZzxWC3U1HGKRnl-DQ"
+            autocomplete="off" />
+          <div class="mb-3"><label class="form-label" for="user_email">Thư điện tử</label><input tabindex="1"
+              class="form-control" type="email" name="user[email]" id="user_email" /><small
+              class="form-text text-muted">Địa chỉ thư điện tử không được hiển thị công khai, xem thêm thông tin trong
+              <a title="Quy định về quyền riêng tư của OSMF, bao gồm phần về địa chỉ thư điện tử" target="new"
+                href="#">quy định về quyền riêng tư</a> của chúng tôi.</small></div>
+
+          <div class="mb-3"><label class="form-label" for="user_display_name">Tên Hiển thị</label><input tabindex="2"
+              class="form-control" type="text" value="" name="user[display_name]" id="user_display_name" /><small
+              class="form-text text-muted">Tên người dùng của bạn được hiển thị công khai. Bạn có thể thay đổi tên này
+              về sau trong tùy chọn.</small></div>
+
+          <div class="row">
+            <div class="col-sm">
+              <div class="mb-3"><label class="form-label" for="user_pass_crypt">Mật khẩu</label><input tabindex="3"
+                  class="form-control" type="password" name="user[pass_crypt]" id="user_pass_crypt" /></div>
+            </div>
+            <div class="col-sm">
+              <div class="mb-3"><label class="form-label" for="user_pass_crypt_confirmation">Xác nhận mật
+                  khẩu</label><input tabindex="4" class="form-control" type="password"
+                  name="user[pass_crypt_confirmation]" id="user_pass_crypt_confirmation" /></div>
+            </div>
+          </div>
+
+          <p class="mb-3 text-body-secondary fs-6">Bằng cách mở tài khoản, bạn chấp nhận <a target="new" href="#">các
+              điều kiện đóng góp</a> của chúng tôi.</p>
+          <div class="mb-3">
+            <div class="form-check mb-3"><input name="user[consider_pd]" type="hidden" value="0"
+                autocomplete="off" /><input tabindex="5" class="form-check-input" type="checkbox" value="1"
+                name="user[consider_pd]" id="user_consider_pd" /><label class="form-check-label"
+                for="user_consider_pd">Tôi coi những đóng góp của mình thuộc về <a target="new" href="#">phạm vi công
+                  cộng</a>.</label></div>
+          </div>
+          <div class="mb-3">
+            <input type="submit" name="continue" value="Mở tài khoản" id="continue" class="btn btn-primary" tabindex="6"
+              data-disable-with="Mở tài khoản" />
+          </div>
+        </form>
+        <div class="d-flex align-items-center my-1">
+          <hr class="flex-grow-1 border-secondary" role="separator">
+          <span class="mx-3 text-secondary">hoặc mở tài khoản qua dịch vụ bên thứ ba</span>
+          <hr class="flex-grow-1 border-secondary" role="separator">
+        </div>
+
+
+        <div>
+          <div id="login_auth_buttons" class="collapse show row row-cols-1 g-2 mb-3">
+
+
+            <div class="col justify-content-center d-flex align-items-center flex-wrap gap-2">
+              <button name="button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#login_auth_buttons, #openid_login_form" title="Đăng nhập qua OpenID"
+                class="btn btn-light p-2"><img alt="Biểu trưng OpenID"
+                  src="/geovrFE-main/assets/auth_providers/openid-266a1a3ec54a38146fc13ff57b1de076cbe97c0765cabdb3a8dee7b98287ee94.svg"
+                  width="36" height="36" /></button>
+              <a class="auth_button btn btn-light p-2" title="Đăng nhập qua Google" rel="nofollow" data-method="post"
+                href="#"><img alt="Biểu trưng Google" class="rounded-1"
+                  src="/geovrFE-main/assets/auth_providers/google-8c4bb8684b643ae9dc726f09ec57cb5f95a6ade15f2e81a69a77d156ce2df919.svg"
+                  width="36" height="36" /></a>
+              <a class="auth_button btn btn-light p-2" title="Đăng nhập qua Facebook" rel="nofollow" data-method="post"
+                href="#"><img alt="Biểu trưng Facebook" class="rounded-1"
+                  src="/geovrFE-main/assets/auth_providers/facebook-3dc92427f876e0d0915e0591b543637242b4cc486a36445cd5b762bda7b6bda8.svg"
+                  width="36" height="36" /></a>
+              <a class="auth_button btn btn-light p-2" title="Đăng nhập qua Microsoft" rel="nofollow" data-method="post"
+                href="#"><img alt="Biểu trưng Microsoft" class="rounded-1"
+                  src="/geovrFE-main/assets/auth_providers/microsoft-6843bfb9a1b1167c62d6b142d334b778dc7aeaf52762b49ace761d4e9736f4f1.svg"
+                  width="36" height="36" /></a>
+              <a class="auth_button btn btn-light p-2" title="Đăng nhập qua GitHub" rel="nofollow" data-method="post"
+                href="#"><img alt="Biểu trưng GitHub" class="rounded-1"
+                  src="/geovrFE-main/assets/auth_providers/github-1f0fc75212d5b64ef729f50d0d3db827200e69180a21838e4ec5c87d88c3fe02.svg"
+                  width="36" height="36" /></a>
+              <a class="auth_button btn btn-light p-2" title="Đăng nhập qua Wikipedia" rel="nofollow" data-method="post"
+                href="#"><img alt="Biểu trưng Wikipedia" class="rounded-1"
+                  src="/geovrFE-main/assets/auth_providers/wikipedia-015508dd3c0a1a7dde3a82423da532be9633e7566cb30e20972bfea2d3739be2.svg"
+                  width="36" height="36" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+  <!-- Gọi layout header -->
+  <script>
+    fetch('/geovrFE-main/layout/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
+
+  <!-- Custom js -->
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

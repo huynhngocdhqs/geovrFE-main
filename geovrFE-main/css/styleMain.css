@@ -1,0 +1,13 @@
+header {
+    height: 50px;
+    position: relative;
+    font-size: 14px;
+}
+
+#header-logo {
+    height: 50px;
+}
+
+.container-fluid {
+    height: calc(100vh - 50px);
+}
